@@ -89,6 +89,8 @@ Answer the remaining questions as follows:
 - Contains ads: **Yes**.
 
 ## App Store: App Privacy ("nutrition label")
+The app shows Apple's App Tracking Transparency prompt once, after the consent form and before any ad loads, and ships an app privacy manifest (`ios/Runner/PrivacyInfo.xcprivacy`) that matches these answers.
+
 - **Data Used to Track You:** Identifiers › Device ID (only if the user allows tracking), Usage Data › Advertising Data.
 - **Data Linked to You:** none.
 - **Data Not Linked to You:** Usage Data (product interaction), Diagnostics (crash data), Location (coarse, via the ads SDK).

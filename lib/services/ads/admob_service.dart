@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:app_tracking_transparency/app_tracking_transparency.dart';
 import 'package:flutter/foundation.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
@@ -47,6 +48,7 @@ class AdMobService extends ChangeNotifier {
     try {
       await _gatherConsent();
       if (!await ConsentInformation.instance.canRequestAds()) return;
+      await _requestTrackingPermission();
       await MobileAds.instance.initialize();
       _initialized = true;
       notifyListeners();
@@ -74,6 +76,22 @@ class AdMobService extends ChangeNotifier {
       await done.future.timeout(const Duration(seconds: 10), onTimeout: () {});
     } on Object catch (e) {
       debugPrint('Consent unavailable: $e');
+    }
+  }
+
+  /// iOS App Tracking Transparency: asks once, after the consent form and
+  /// before any ad loads (Apple guideline 5.1.2; Google's recommended
+  /// order). Declining is fine: ads still load, just non-personalized.
+  Future<void> _requestTrackingPermission() async {
+    if (defaultTargetPlatform != TargetPlatform.iOS) return;
+    try {
+      if (await AppTrackingTransparency.trackingAuthorizationStatus != TrackingStatus.notDetermined) return;
+      // The system ignores the request unless the app is active; give a
+      // just-closed consent form a moment to dismiss.
+      await Future<void>.delayed(const Duration(milliseconds: 400));
+      await AppTrackingTransparency.requestTrackingAuthorization();
+    } on Object catch (e) {
+      debugPrint('Tracking permission unavailable: $e');
     }
   }
 
