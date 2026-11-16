@@ -47,6 +47,8 @@ The name, logo, art, sounds and levels are all original. To rename the game, edi
 | Play screenshots | 1080×1920 ×8 | `store/google_play/screenshots/` |
 | App Store 6.9" screenshots | 1320×2868 ×8 | `store/app_store/screenshots_6.9/` |
 | App Store 6.5" screenshots | 1284×2778 ×8 | `store/app_store/screenshots_6.5/` |
+| App Store 6.3" screenshots | 1179×2556 ×8 | `store/app_store/screenshots_6.3/` |
+| App Store iPad 13" screenshots | 2048×2732 ×8 | `store/app_store/screenshots_ipad_13/` (only needed if you enable iPad) |
 | Listing text, category, age rating, privacy answers | | [`store/STORE_LISTING.md`](store/STORE_LISTING.md) |
 
 **Category:** Google Play › Game › Puzzle. App Store › Games › Puzzle, with Games › Casual as secondary. Expected rating: Everyone / 4+.

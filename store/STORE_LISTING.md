@@ -110,6 +110,8 @@ The app shows Apple's App Tracking Transparency prompt once, after the consent f
 | `google_play/screenshots/*.png` | Play phone screenshots (1080×1920, ×8) |
 | `app_store/screenshots_6.9/*.png` | App Store iPhone 6.9" (1320×2868, ×8) |
 | `app_store/screenshots_6.5/*.png` | App Store iPhone 6.5" (1284×2778, ×8) |
+| `app_store/screenshots_6.3/*.png` | App Store iPhone 6.1"/6.3" (1179×2556, ×8) |
+| `app_store/screenshots_ipad_13/*.png` | App Store iPad 12.9"/13" (2048×2732, ×8). Only needed if the build supports iPad; this build is iPhone-only. |
 | `raw_screenshots/*.png` | Unframed captures from the iPhone 17 Pro Max simulator |
 
 Screenshot order and captions: 1 Sort the balls · 2 2,000 levels · 3 Collect stars · 4 Daily puzzle · 5 Five modes · 6 Journey map · 7 Ball skins & themes · 8 Smart hint.

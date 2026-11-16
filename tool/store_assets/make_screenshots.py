@@ -29,6 +29,8 @@ TARGETS = [
     ('google_play/screenshots', 1080, 1920),
     ('app_store/screenshots_6.9', 1320, 2868),
     ('app_store/screenshots_6.5', 1284, 2778),
+    ('app_store/screenshots_6.3', 1179, 2556),
+    ('app_store/screenshots_ipad_13', 2048, 2732),
 ]
 
 
@@ -76,7 +78,13 @@ def slide(raw, l1, l2, sub, accent, W, H):
     avail_h = H - dev_top + int(H * 0.08)  # the phone may run off the bottom edge a little
     dev_w = int(W * (0.80 if not wide else 0.62))
     dev_h = int(dev_w * shot.height / shot.width)
-    if dev_h > avail_h * 1.15:
+    if wide:
+        # Wide canvases (Play 9:16, iPad 3:4): show the whole phone.
+        max_h = H - dev_top - int(H * 0.04)
+        if dev_h > max_h:
+            dev_h = max_h
+            dev_w = int(dev_h * shot.width / shot.height)
+    elif dev_h > avail_h * 1.15:
         dev_h = int(avail_h * 1.15)
         dev_w = int(dev_h * shot.width / shot.height)
     bezel = int(dev_w * 0.028)
