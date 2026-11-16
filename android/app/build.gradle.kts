@@ -58,6 +58,8 @@ android {
             } else {
                 signingConfigs.getByName("debug")
             }
+            // Keep rules R8 needs for the ads SDK's WorkManager database.
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
 }
