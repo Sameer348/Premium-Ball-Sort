@@ -91,9 +91,9 @@ Answer the remaining questions as follows:
 ## App Store: App Privacy ("nutrition label")
 The app shows Apple's App Tracking Transparency prompt once, after the consent form and before any ad loads, and ships an app privacy manifest (`ios/Runner/PrivacyInfo.xcprivacy`) that matches these answers.
 
-- **Data Used to Track You:** Identifiers › Device ID (only if the user allows tracking), Usage Data › Advertising Data.
+- **Data Used to Track You:** Identifiers › Device ID (Third-Party Advertising). Only this type is marked "used for tracking", matching Google Mobile Ads' own manifest.
 - **Data Linked to You:** none.
-- **Data Not Linked to You:** Usage Data (product interaction), Diagnostics (crash data), Location (coarse, via the ads SDK).
+- **Data Not Linked to You:** Usage Data (Advertising Data, Product Interaction), Location (Coarse), Diagnostics (Crash Data, Performance Data, Other Diagnostic Data). None of these are used for tracking.
 
 ## Required URLs (you host these)
 - **Privacy policy URL:** required on both stores because the app shows ads. It must mention Google AdMob and the advertising ID. The in-app privacy text is in `lib/core/constants/app_info.dart`.
