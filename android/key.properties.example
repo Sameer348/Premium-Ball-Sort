@@ -1,0 +1,7 @@
+# Copy to android/key.properties (never commit the real file) and fill in.
+# Create the upload keystore once with:
+#   keytool -genkey -v -keystore ~/sortsphere-upload.jks -keyalg RSA -keysize 2048 -validity 10000 -alias upload
+storePassword=YOUR_STORE_PASSWORD
+keyPassword=YOUR_KEY_PASSWORD
+keyAlias=upload
+storeFile=/Users/YOU/sortsphere-upload.jks
